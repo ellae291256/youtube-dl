@@ -49,7 +49,7 @@ class TestExecution(unittest.TestCase):
         lazy_extractors = os.path.normpath('youtube_dl/extractor/lazy_extractors.py')
         try:
             subprocess.check_call([sys.executable, os.path.normpath('devscripts/make_lazy_extractors.py'), lazy_extractors], cwd=rootDir, stdout=_DEV_NULL)
-            subprocess.check_call([sys.executable, os.path.normpath('test/test_all_urls.py')], cwd=rootDir, stdout=_DEV_NULL)
+            subprocess.check_call([sys.executable, os.path.normpath('test/test_all_urls.py')], cwd=rootDir, stdout=_DEV_NULL, stderr=_DEV_NULL)
         finally:
             for x in ('', 'c') if sys.version_info[0] < 3 else ('',):
                 try:
