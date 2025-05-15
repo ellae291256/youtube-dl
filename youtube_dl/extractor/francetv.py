@@ -330,10 +330,7 @@ class FranceTVIE(InfoExtractor):
 
 class FranceTVEmbedIE(FranceTVBaseIE):
     _VALID_URL = r'''(?x)
-        https?://embed\.francetv\.fr(?:/?\?(?:.*&)?(?P<ue>ue)=|/)
-        # Say (?:...|) instead of (?:...)? when ... ends .* to avoid
-        # python/cpython#62847 (fixed from at least 3.5 and late 2.7)
-        (?P<id>[\da-f]{32})(?:(?(ue)&|/?[?#]).*|)$```
+        https?://embed\.francetv\.fr(?:/|\?ue=(?P<ue>[^&]+))/(?P<id>[\da-f]{32})(?:[?#].*)?$
     '''
     _TESTS = [{
         'url': 'http://embed.francetv.fr/?ue=7fd581a2ccf59d2fc5719c5c13cf6961',
